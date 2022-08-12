@@ -59,17 +59,24 @@ const number = document.getElementsByClassName('number');
   });
 
   againBtn[0].addEventListener('click', () => {
+    again();
+  });
+
+  scoreCounting();
+
+  function scoreCounting() {
+    if (scoreCounter <= 0) {
+      again();
+    }
+    score[0].innerHTML = scoreCounter;
+  }
+  function again() {
     getRandomInt(1, 20);
     document.body.classList.remove('win');
     guess[0].value = 0;
     scoreCounter = 20;
     score[0].innerHTML = scoreCounter;
     number[0].innerHTML = '?';
-  });
-
-  scoreCounting();
-
-  function scoreCounting() {
-    score[0].innerHTML = scoreCounter;
+    message[0].innerHTML = 'Start guessing...';
   }
 })();
